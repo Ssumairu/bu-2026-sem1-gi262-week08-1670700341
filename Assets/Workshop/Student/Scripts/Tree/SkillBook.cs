@@ -2,22 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static Skill;
 
 
-public class SkillBook : MonoBehaviour
-{
-    public SkillTree attackSkillTree;
-
-    Skill attack;
-    Skill fireStorm;
-    Skill fireBall;
-    Skill fireBlast;
-    Skill fireWave;
-    Skill fireExplosion;
-
-    public void Start()
+    public class SkillBook : MonoBehaviour
     {
+        public SkillTree attackSkillTree;
+
+        Skill attack;
+        Skill fireStorm;
+        Skill fireBall;
+        Skill fireBlast;
+        Skill fireWave;
+        Skill fireExplosion;
+
+        public void Start()
+        {
         // build skill tree
         // └── Attack
         //     └── FireStorm
@@ -45,16 +44,17 @@ public class SkillBook : MonoBehaviour
         attack.nextSkills.Add(fireStorm);
 
         this.attackSkillTree = new SkillTree(attack);
-    }
+        }
 
-    public void Update()
-    {
-        Keyboard keyboard = Keyboard.current;
-        if (keyboard != null && keyboard.pKey.wasPressedThisFrame)
+        public void Update()
         {
-            attackSkillTree.rootSkill.PrintSkillTreeHierarchy("");
-            // attackSkillTree.rootSkill.PrintSkillTree();
-            Debug.Log("====================================");
+            Keyboard keyboard = Keyboard.current;
+            if (keyboard != null && keyboard.pKey.wasPressedThisFrame)
+            {
+                attackSkillTree.rootSkill.PrintSkillTreeHierarchy("");
+                // attackSkillTree.rootSkill.PrintSkillTree();
+                Debug.Log("====================================");
+            } 
         }
     }
-}
+

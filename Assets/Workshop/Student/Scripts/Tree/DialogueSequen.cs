@@ -6,7 +6,7 @@ public class DialogueSequen : MonoBehaviour
 {
     public DialogueTree tree;
     public DialogueNode currentNode;
-    DialogueUI dialogueUI;
+    DialogueUI dialogueUI; 
 
     public void Start()
     {
@@ -97,8 +97,9 @@ public class DialogueSequen : MonoBehaviour
                 // ถ้าไม่มีตัวเลือกถัดไป ถือว่าจบบทสนทนา
                 dialogueUI.ShowDialogue(currentNode);   // แสดงข้อความสุดท้าย
                 dialogueUI.ShowCloseButtonDialog();    // อาจเพิ่ม Delay และเรียก dialogueUI.HideDialogue() ที่นี่
-                                                       // หรือทำให้ปุ่ม "ปิด" แสดงขึ้นมา
+                                                      // หรือทำให้ปุ่ม "ปิด" แสดงขึ้นมา
             }
         }
     }
 }
+
